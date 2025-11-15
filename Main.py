@@ -1,4 +1,4 @@
-from alimentos import mostrar_lista_alimentos, agregar_alimento
+from alimentos import mostrar_lista_alimentos, agregar_alimento, buscar_alimento
 
 lista_alimentos = [
     {"nombre": "zanahoria", "calorias": 89}, 
@@ -17,8 +17,8 @@ while menu_activo:
     print("""
     1:  Mostrar lista de alimentos
     2:  Agregar alimento nuevo
-    3:  Editar alimento existente
-    4:  Buscar alimento
+    3:  Buscar alimento
+    4:  Editar alimento existente
     5:  Filtrar alimentos por calorías
     6:  Registrar alimento consumido
     7:  Registrar porciones consumidas XXXXXXXXXXX
@@ -37,3 +37,8 @@ while menu_activo:
         mostrar_lista_alimentos(lista_alimentos)
     elif opcion == "2":
         agregar_alimento(lista_alimentos)
+    elif opcion == "3":
+        buscar_alimento(lista_alimentos)
+    
+    elif opcion == "15":
+        menu_activo = False

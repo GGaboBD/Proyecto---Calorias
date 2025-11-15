@@ -1,18 +1,12 @@
-lista_alimentos = [
-    {"nombre": "zanahoria", "calorias": 89}, 
-    {"nombre": "manzana", "calorias": 78},
-    {"nombre": "banana", "calorias": 58}
-]
-
-def mostrar_lista_alimentos(lista_alimentos):
+def mostrar_lista_alimentos(lista_alimentos): #Opcion 1
     if len(lista_alimentos) == 0:
         print("No hay alimentos registrados")
     else:
         for i, a in enumerate(lista_alimentos, start=1):
-            print(f"{i}. {a["nombre"]} - {a["calorias"]} kcal")
+            print(f"{i}. {a["nombre"].capitalize()} - {a["calorias"]} kcal")
 
             
-def agregar_alimento(lista_alimentos):
+def agregar_alimento(lista_alimentos): #Opcion 2
     nombre = input("Ingresa el nombre del alimento nuevo a registrar: ").lower().strip()
 
     existe = False
@@ -32,7 +26,25 @@ def agregar_alimento(lista_alimentos):
                             'nombre': nombre,
                             'calorias':calorias
                         })
-            print(f"Agregado: {nombre} - {calorias} kcal")
+            print(f"Agregado: {nombre.capitalize()} - {calorias} kcal")
+
+
+def buscar_alimento(lista_alimentos): #opcion 4
+    nombre = input("Ingresa el nombre del alimento que deseas buscar: ").lower()
+    coincidencias = 0
+
+    for a in lista_alimentos:
+        if nombre in a['nombre']:
+            coincidencias +=1
+            print(f"Encontrado. {a['nombre'].capitalize()} - {a['calorias']} kcal")
+        
+    if coincidencias == 0:
+        print("No se encontro tu alimento")
+    
+
+
+
+
 
 """
 def registrar_alimento_consumido(lista_comidas):
