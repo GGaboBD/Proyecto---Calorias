@@ -29,7 +29,7 @@ def agregar_alimento(lista_alimentos): #Opcion 2
             print(f"Agregado: {nombre.capitalize()} - {calorias} kcal")
 
 
-def buscar_alimento(lista_alimentos): #opcion 4
+def buscar_alimento(lista_alimentos): #opcion 3
     nombre = input("Ingresa el nombre del alimento que deseas buscar: ").lower()
     coincidencias = 0
 
