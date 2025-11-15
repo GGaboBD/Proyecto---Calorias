@@ -1,19 +1,38 @@
-
+lista_alimentos = [
+    {"nombre": "zanahoria", "calorias": 89}, 
+    {"nombre": "manzana", "calorias": 78},
+    {"nombre": "banana", "calorias": 58}
+]
 
 def mostrar_lista_alimentos(lista_alimentos):
-    lista_alimentos.extend([{"nombre": "Zanahoria", "calorias": 89}, 
-                            {"nombre": "Manzana", "calorias": 78},
-                            {"nombre": "Banana", "calorias": 58}
-                           ])
-
     if len(lista_alimentos) == 0:
         print("No hay alimentos registrados")
     else:
         for i, a in enumerate(lista_alimentos, start=1):
             print(f"{i}. {a["nombre"]} - {a["calorias"]} kcal")
 
-def agregar_alimento(lista_alimentos, nombre, calorias):
-    nombre = input("Ingresa el nombre del alimento nuevo a registrar: ").strip().lower()
+            
+def agregar_alimento(lista_alimentos):
+    nombre = input("Ingresa el nombre del alimento nuevo a registrar: ").lower().strip()
+
+    existe = False
+
+    for a in lista_alimentos:
+        if a['nombre'] == nombre:
+            existe = True
+    if existe:
+        print("Ese alimento ya existe en nuestro registro")
+    else:
+        calorias = int(input("Ingresa las calorias de tu alimento (Solo numeros): "))
+
+        if calorias <=0:
+            print("La calorias deben ser mayor a 0")
+        else:
+            lista_alimentos.append({
+                            'nombre': nombre,
+                            'calorias':calorias
+                        })
+            print(f"Agregado: {nombre} - {calorias} kcal")
 
 """
 def registrar_alimento_consumido(lista_comidas):
